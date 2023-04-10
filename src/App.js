@@ -5,6 +5,7 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Paypal from './Pages/Paypal';
+import Header from './components/Header';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
     return (
         <div className={classes.root}>
             <HashRouter>
+            <Header />
                 {
                     !user ? (<Login/>) : (
                         <Routes>

@@ -5,7 +5,6 @@ import Login from './Pages/Login';
 import Home from './Pages/Home';
 import Profile from './Pages/Profile';
 import Paypal from './Pages/Paypal';
-import Header from './components/Header';
 
 function App() {
 
@@ -15,8 +14,8 @@ function App() {
     return (
         <div className={classes.root}>
             <HashRouter>
-            <Header />
-                {
+            <Home />
+                {/*{
                     !user ? (<Login/>) : (
                         <Routes>
                             <Route path='/' element={<Home/>} />
@@ -24,7 +23,7 @@ function App() {
                             <Route path='checkout' element={<Paypal/>} />
                         </Routes>
                     )
-                }
+                }*/}
             </HashRouter>
         </div>
     );
@@ -32,7 +31,7 @@ function App() {
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: '#111',
+        //backgroundColor: '#111',
         minHeight: '100vh',
         color: '#FFF'
     }

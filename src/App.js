@@ -8,14 +8,13 @@ import Paypal from './Pages/Paypal';
 
 function App() {
 
-    const user = 'Manu';
+    const user = null;
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
             <HashRouter>
-            <Home />
-                {/*{
+                {
                     !user ? (<Login/>) : (
                         <Routes>
                             <Route path='/' element={<Home/>} />
@@ -23,7 +22,7 @@ function App() {
                             <Route path='checkout' element={<Paypal/>} />
                         </Routes>
                     )
-                }*/}
+                }
             </HashRouter>
         </div>
     );

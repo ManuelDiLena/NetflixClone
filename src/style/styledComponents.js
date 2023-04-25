@@ -1,6 +1,13 @@
 import styled from "styled-components";
 import { InputBase } from "@material-ui/core";
 
+const handleWidth = wide => {
+    switch (wide) {
+        case 'fullWidth' : return '100%'
+        default : return '160px'
+    }
+}
+
 export const NetflixInput = styled(InputBase) `
     z-index: 15;
     background-color: #FFFFFF;
@@ -27,4 +34,5 @@ export const NetflixButton = styled.button `
     border: none;
     outline: none;
     cursor: pointer;
+    width: ${({wide}) => handleWidth(wide)}
 `

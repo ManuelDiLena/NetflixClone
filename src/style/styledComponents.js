@@ -17,6 +17,7 @@ export const NetflixInput = styled(InputBase) `
     font-size: 1.1rem;
     padding: 8px 2px;
     border: none;
+    border-radius: 5px;
     outline: none;
     cursor: pointer;
     margin-right: 10px;
@@ -32,6 +33,7 @@ export const NetflixButton = styled.button `
     font-size: 1.1rem;
     font-weight: 500;
     border: none;
+    border-radius: 5px;
     outline: none;
     cursor: pointer;
     width: ${({wide}) => handleWidth(wide)}

@@ -3,18 +3,20 @@ import { Typography, makeStyles } from '@material-ui/core'
 import { NetflixInput, NetflixButton } from '../style/styledComponents';
 import { useState } from 'react';
 import { auth } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
 
     const classes = useStyles();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     // Function to login with existing user
     const signIn = (e) => {
         e.preventDefault()
         auth.signInWithEmailAndPassword(email, password)
-            .then((authUser) => console.log(authUser))
+            .then((authUser) => navigate('/'))
             .catch((err) => alert(err.message))
     }
 
@@ -22,7 +24,7 @@ const SignUp = () => {
     const register = (e) => {
         e.preventDefault()
         auth.createUserWithEmailAndPassword(email, password)
-            .then((authUser) => console.log(authUser))
+            .then((authUser) => navigate('/'))
             .catch((err) => alert(err.message))
     }
 

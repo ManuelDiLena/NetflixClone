@@ -13,9 +13,9 @@ export const NetflixInput = styled(InputBase) `
     background-color: #FFFFFF;
     color: #000000;
     text-transform: inherit;
-    width: 200px;
+    width: 250px;
     font-size: 1.1rem;
-    padding: 8px 2px;
+    padding: 6px 10px;
     border: none;
     border-radius: 5px;
     outline: none;
@@ -28,8 +28,8 @@ export const NetflixButton = styled.button `
     z-index: 15;
     color: #FFFFFF;
     text-transform: inherit;
-    padding: 15px 0;
-    width: 200px;
+    padding: 12px 0;
+    width: 250px;
     font-size: 1.1rem;
     font-weight: 500;
     border: none;

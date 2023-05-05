@@ -1,21 +1,53 @@
 import React from 'react'
 import { Typography, makeStyles } from '@material-ui/core'
 import { NetflixInput, NetflixButton } from '../style/styledComponents';
+import { useState } from 'react';
+import { auth } from '../firebase';
 
 const SignUp = () => {
 
     const classes = useStyles();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    // Function to login with existing user
+    const signIn = (e) => {
+        e.preventDefault()
+        auth.signInWithEmailAndPassword(email, password)
+            .then((authUser) => console.log(authUser))
+            .catch((err) => alert(err.message))
+    }
+
+    // Function to register for the first time in the app
+    const register = (e) => {
+        e.preventDefault()
+        auth.createUserWithEmailAndPassword(email, password)
+            .then((authUser) => console.log(authUser))
+            .catch((err) => alert(err.message))
+    }
 
     return (
         <div className={classes.root}>
             <Typography variant='h5' align='left'>Sign In</Typography>
             <form className={classes.form}>
-                <NetflixInput className={classes.email} placeholder='Email'/>
-                <NetflixInput className={classes.password} placeholder='Password'/>
-                <NetflixButton wide='medium'>Sign In</NetflixButton>
+                <NetflixInput 
+                    className={classes.email} 
+                    placeholder='Email' 
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
+                <NetflixInput 
+                    className={classes.password} 
+                    placeholder='Password' 
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <NetflixButton onClick={signIn} type='submit' wide='medium'>Sign In</NetflixButton>
                 <Typography variant='subtitle2'>
                     New to Netflix?{'  '}
-                    <span className={classes.signUpLink}>
+                    <span onClick={register} className={classes.signUpLink}>
                         Sign Up now.{' '}
                     </span>
                 </Typography>

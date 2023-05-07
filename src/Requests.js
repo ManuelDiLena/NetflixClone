@@ -1,4 +1,5 @@
 const API_KEY = '91189b9f114a94d488a93219fe27cf5a';
+//const API_KEY = '67d7a51db285feb1d2606724117d03c9';
 
 // Endpoints
 // Each endpoint is a different movie genre

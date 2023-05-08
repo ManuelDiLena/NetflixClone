@@ -1,19 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button, Typography, makeStyles } from '@material-ui/core'
 import BannerNetflix from '../images/HeroLogin.png'
+import instance from '../axios'
+import requests from '../Requests'
 
 const Banner = () => {
 
     const classes = useStyles();
+    const [movie, setMovie] = useState([]);
 
     // Function to cut description text
     const truncate = (string, n) => string?.length > n ? `${string.substr(0, n-1)} ...` : string
 
+    // Function to show random movie image in the banner
+    useEffect(() => {
+        const fetchData = async () => {
+            const request = await instance.get(requests.fetchNetflixOriginals)
+            setMovie(
+                request.data.results[
+                    Math.floor(Math.random() * request.data.results.length - 1)
+                ]
+            )
+            return request
+        }
+        fetchData()
+    }, [])
+
     return (
-        <div className={classes.root}>
+        <div className={classes.root} style={{
+            backgroundImage: `url("https://image.tmdb.org/t/p/original/${movie?.backdrop_path}")`
+        }}>
             <div className={classes.content}>
                 <Typography variant='h2' component='h1'>
-                    Movie Title
+                    { movie?.title || movie?.name || movie?.original_name }
                 </Typography>
                 <div className={classes.btns}>
                     <Button>Play</Button>
@@ -21,7 +40,7 @@ const Banner = () => {
                 </div>
                 <Typography variant='h6' className={classes.description} style={{ wordWrap: 'break-word' }}>
                     {
-                        truncate('Movie Description', 150)
+                        truncate(movie?.overview, 150)
                     }
                 </Typography>
                 <div className={classes.fadeBtn}></div>
@@ -33,9 +52,8 @@ const Banner = () => {
 // Constant with object to generate styles
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundImage: `url(${BannerNetflix})`,
         position: 'relative',
-        height: '440px',
+        height: '500px',
         objectFit: 'contain',
         backgroundSize: 'cover',
         backgroundPosition: 'center'

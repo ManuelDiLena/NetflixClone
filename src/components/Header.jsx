@@ -40,7 +40,7 @@ const Header = () => {
 // Constant with object to generate styles
 const useStyles = makeStyles((theme) => ({
     root: {
-        backgroundColor: '#111',
+        backgroundColor: 'rgba(51,51,51,0.5)',
         top: 0,
         left: 0,
         right: 0

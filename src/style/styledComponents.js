@@ -4,6 +4,7 @@ import { InputBase } from "@material-ui/core";
 const handleWidth = wide => {
     switch (wide) {
         case 'fullWidth' : return '100%'
+        case 'mediumWidth' : return '50%'
         default : return '160px'
     }
 }

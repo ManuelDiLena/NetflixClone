@@ -43,6 +43,7 @@ function App() {
     );
 }
 
+// Constant with object to generate styles
 const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: '#111111',

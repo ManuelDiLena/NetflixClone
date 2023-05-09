@@ -40,7 +40,7 @@ const Banner = () => {
                 </div>
                 <Typography variant='h6' className={classes.description} style={{ wordWrap: 'break-word' }}>
                     {
-                        truncate(movie?.overview, 150)
+                        truncate(movie?.overview, 300)
                     }
                 </Typography>
                 <div className={classes.fadeBtn}></div>
